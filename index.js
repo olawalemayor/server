@@ -11,7 +11,7 @@ const lga = require("./routes/lga");
 const party = require("./routes/party");
 const puResult = require("./routes/pu_results");
 
-const port = 9000 || process.env.PORT;
+const port = process.env.PORT || 9000;
 
 //open express server
 app.listen(port, () => {
