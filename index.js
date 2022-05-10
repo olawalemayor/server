@@ -13,11 +13,6 @@ const puResult = require("./routes/pu_results");
 
 const port = process.env.PORT || 9000;
 
-//open express server
-app.listen(port, () => {
-  console.log(`Server is listening at ${port}`);
-});
-
 //Add some useful middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -34,3 +29,8 @@ app.use("/states", states);
 app.use("/lga", lga);
 app.use("/party", party);
 app.use("/pu-results", puResult);
+
+//open express server
+app.listen(port, () => {
+  console.log(`Server is listening at ${port}`);
+});
