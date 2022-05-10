@@ -11,11 +11,11 @@ const lga = require("./routes/lga");
 const party = require("./routes/party");
 const puResult = require("./routes/pu_results");
 
-const port = 9000;
+const port = 9000 || process.env.PORT;
 
 //open express server
 app.listen(port, () => {
-  console.log(`Server is listening at http://localhost:${port}`);
+  console.log(`Server is listening at ${port}`);
 });
 
 //Add some useful middleware
