@@ -9,14 +9,14 @@ router.get("/", (req, res) => {
   });
 });
 
-router.get("/:pollingId", (req, res) => {
-  const { pollingId } = req.params;
+router.get("/polls/:pun", (req, res) => {
+  const { pun } = req.params;
   sql.query(
-    `SELECT * from polling_unit WHERE uniqueid = ${pollingId} LIMIT 1`,
+    `SELECT * FROM announced_pu_results LEFT JOIN polling_unit ON polling_unit.uniqueid = announced_pu_results.polling_unit_uniqueid WHERE pu_result.polling_unit_number = "${pun}"`,
     (err, results) => {
       if (err) throw err;
 
-      res.send(results[0]["polling_unit_name"]);
+      res.send(results);
     }
   );
 });
